@@ -7,14 +7,13 @@ $dbName = "baka";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
-    // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    die("Connection failed: " . $e->getMessage());
 }
 
-
 /*
+-- SQL Query - Tabulka POST
 CREATE TABLE POSTS (
     id INT AUTO_INCREMENT PRIMARY KEY,
     post_name VARCHAR(255) NOT NULL,
